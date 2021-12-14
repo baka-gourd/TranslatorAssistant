@@ -4,6 +4,7 @@ import { Button } from "@chakra-ui/react";
 
 interface State {
     langFile?: Blob;
+    jsonFile?: Blob;
 }
 
 export default class FuncLang2json extends Component<State> {
