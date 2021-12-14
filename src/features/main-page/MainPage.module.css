@@ -1,0 +1,8 @@
+.warnAlert {
+  border-radius: 8px;
+  @apply mt-4;
+}
+
+.navLink {
+  @apply bg-blue-500 rounded-md hover:outline-none shadow-md text-white text-xl px-2 py-2;
+}
