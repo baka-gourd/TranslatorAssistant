@@ -2327,6 +2327,11 @@
   dependencies:
     postcss "5 - 7"
 
+"@types/downloadjs@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.npmjs.org/@types/downloadjs/-/downloadjs-1.4.2.tgz#6734e60840cd8df3f0f8937c80e67efe7de6f886"
+  integrity sha512-9UWO+nrRhwyKcFe45SFc98sWI8RGwpVwtZiZzi0W/dWdrp1SiUWFNANLlAXZb5QCMFDbeRiAQEhRn5btLd4a4w==
+
 "@types/eslint-scope@^3.7.0":
   version "3.7.1"
   resolved "https://registry.npmjs.org/@types/eslint-scope/-/eslint-scope-3.7.1.tgz#8dc390a7b4f9dd9f1284629efce982e41612116e"
@@ -4303,6 +4308,11 @@ dotenv@^10.0.0:
   version "10.0.0"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
+
+downloadjs@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.npmjs.org/downloadjs/-/downloadjs-1.4.7.tgz#f69f96f940e0d0553dac291139865a3cd0101e3c"
+  integrity sha1-9p+W+UDg0FU9rCkROYZaPNAQHjw=
 
 duplexer@^0.1.2:
   version "0.1.2"
