@@ -11,6 +11,7 @@ import {
     Tr,
 } from "@chakra-ui/react";
 import download from "downloadjs";
+
 interface State {
     langFile?: File;
     lang?: string;
@@ -20,6 +21,7 @@ interface State {
 interface jFile {
     [key: string]: string;
 }
+
 export default class FuncLang2json extends Component<State> {
     state: State = { langFile: undefined, lang: undefined, isLoading: false };
 
@@ -35,7 +37,17 @@ export default class FuncLang2json extends Component<State> {
 
     readFile(file: File | undefined) {
         this.setState({ ...this.state, isLoading: true });
-        if (file === undefined) return;
+        if (file === undefined) {
+            this.toast({
+                title: "读取文件失败",
+                description: "无法读取文件信息，请检查是否已加载文件！",
+                status: "error",
+                duration: 2000,
+                isClosable: true,
+            });
+            this.setState({ ...this.state, isLoading: false });
+            return;
+        }
         const reader = new FileReader();
         reader.onload = () => {
             this.setState({
@@ -77,7 +89,7 @@ export default class FuncLang2json extends Component<State> {
         download(blob, "result.json", "text/json;charset=utf-8");
         this.toast({
             title: "正在下载",
-            description: "下载已经开始。",
+            description: "下载已经开始，请稍等片刻。",
             status: "success",
             duration: 1500,
             isClosable: true,
