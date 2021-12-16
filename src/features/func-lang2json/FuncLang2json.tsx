@@ -102,8 +102,6 @@ export default class FuncLang2json extends Component<State> {
                 <HStack spacing={3} justify="center">
                     <input
                         type="file"
-                        name="lang"
-                        id="lang"
                         ref={this.lang}
                         accept=".lang"
                         onChange={() => this.setLangFile()}
@@ -113,7 +111,8 @@ export default class FuncLang2json extends Component<State> {
                         colorScheme="blue"
                         loadingText="读取中..."
                         ref={this.loadBtn}
-                        isLoading={this.state.isLoading}>
+                        isLoading={this.state.isLoading}
+                        isDisabled={this.state.langFile === undefined}>
                         读取文件
                     </Button>
                     <Button
@@ -123,12 +122,14 @@ export default class FuncLang2json extends Component<State> {
                     </Button>
                 </HStack>
                 <Table variant="simple" size="sm">
-                    <Thead>
-                        <Tr>
-                            <Th>Key</Th>
-                            <Th>Value</Th>
-                        </Tr>
-                    </Thead>
+                    {this.state.lang !== undefined && (
+                        <Thead>
+                            <Tr>
+                                <Th>Key</Th>
+                                <Th>Value</Th>
+                            </Tr>
+                        </Thead>
+                    )}
                     <Tbody>
                         {this.state.lang?.split("\n").map((s, index) => {
                             if (s.trim() === "") return null;
