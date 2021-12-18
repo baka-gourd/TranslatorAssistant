@@ -2,6 +2,7 @@ import {
     Button,
     createStandaloneToast,
     HStack,
+    Input,
     Table,
     Tbody,
     Td,
@@ -45,6 +46,7 @@ export default class FuncJsonComplete extends Component<State> {
 
     j1 = createRef<HTMLInputElement>();
     j2 = createRef<HTMLInputElement>();
+    pre = createRef<HTMLInputElement>();
 
     toast = createStandaloneToast();
 
@@ -144,6 +146,9 @@ export default class FuncJsonComplete extends Component<State> {
 
     completeJson(mode: string) {
         if (this.state.comp === undefined) return;
+        if (this.pre === undefined) return;
+        let preV = this.pre.current?.value;
+        if (preV === undefined) preV = "";
         let result: jFile = {};
         for (const key in this.state.comp) {
             if (Object.prototype.hasOwnProperty.call(this.state.comp, key)) {
@@ -152,13 +157,13 @@ export default class FuncJsonComplete extends Component<State> {
                 if (mode === "prev") {
                     if (element.prev === undefined) continue;
                     if (element.next === undefined) element.next = element.prev;
-                    result[key] = element.next;
+                    result[key] = preV + element.next;
                 }
 
                 if (mode === "next") {
                     if (element.next === undefined) continue;
                     if (element.prev === undefined) element.prev = element.next;
-                    result[key] = element.prev;
+                    result[key] = preV + element.prev;
                 }
             }
         }
@@ -204,6 +209,10 @@ export default class FuncJsonComplete extends Component<State> {
                         onClick={() => this.loadFile()}>
                         加载
                     </Button>
+                    <Input
+                        placeholder="在补全时的前缀（可选）"
+                        ref={this.pre}
+                        width={250}></Input>
                     <Button
                         colorScheme="green"
                         isDisabled={

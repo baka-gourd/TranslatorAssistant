@@ -6,6 +6,7 @@ import MainDesc from "../main-desc/MainDesc";
 import styles from "./MainPage.module.css";
 import FuncLang2json from "../func-lang2json/FuncLang2json";
 import FuncJsonComplete from "../func-jsoncomplete/FuncJsonComplete";
+import FuncJsonUpdate from "../func-jsonupdate/FuncJsonUpdate";
 
 export default class MainPage extends Component {
     render() {
@@ -31,12 +32,16 @@ export default class MainPage extends Component {
                     <NavLink to="/jc" className={styles.navLink}>
                         Json补全
                     </NavLink>
+                    <NavLink to="/ju" className={styles.navLink}>
+                        Json更新
+                    </NavLink>
                 </HStack>
                 <Routes>
                     <Route path="test" element={<Counter />}></Route>
                     <Route path="/" element={<MainDesc />}></Route>
                     <Route path="/l2j" element={<FuncLang2json />}></Route>
                     <Route path="/jc" element={<FuncJsonComplete />}></Route>
+                    <Route path="/ju" element={<FuncJsonUpdate />}></Route>
                 </Routes>
             </div>
         );
