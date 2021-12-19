@@ -165,7 +165,9 @@ export default class FuncJsonUpdate extends Component<State> {
         let result: jFile = {};
         let o = JSON.parse(res);
         this.state.dict.forEach((value, key) => {
-            result[value.new + ""] = o[value.old + ""];
+            let v = o[value.old + ""];
+            if (v === undefined || v === "") v = key;
+            result[value.new + ""] = v;
         });
 
         let blob = new Blob([JSON.stringify(result, null, "\t")], {
