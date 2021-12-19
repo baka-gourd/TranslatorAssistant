@@ -244,9 +244,9 @@ export default class FuncJsonUpdate extends Component<State> {
                             <Thead>
                                 <Tr>
                                     <Th>Key</Th>
-                                    <Th>V1</Th>
-                                    <Th>V2</Th>
-                                    <Th>V3</Th>
+                                    <Th>旧</Th>
+                                    <Th>新</Th>
+                                    <Th>中</Th>
                                 </Tr>
                             </Thead>
                         )}

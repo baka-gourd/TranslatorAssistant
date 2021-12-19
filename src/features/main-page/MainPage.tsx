@@ -1,8 +1,7 @@
-import { Alert, AlertDescription, AlertIcon, HStack } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import { Component } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { Counter } from "../counter/Counter";
-import MainDesc from "../main-desc/MainDesc";
 import styles from "./MainPage.module.css";
 import FuncLang2json from "../func-lang2json/FuncLang2json";
 import FuncJsonComplete from "../func-jsoncomplete/FuncJsonComplete";
@@ -12,17 +11,17 @@ export default class MainPage extends Component {
     render() {
         return (
             <div className="container mx-auto">
-                <Alert status="warning" className={styles.warnAlert}>
+                {/* <Alert status="warning" className={styles.warnAlert}>
                     <AlertIcon />
                     <AlertDescription>
                         The tool is still under development, note the update.
                     </AlertDescription>
-                </Alert>
+                </Alert> */}
                 <h1 className="text-4xl mt-4">汉化小工具</h1>
                 <HStack spacing={3} className="mx-auto w-1/2">
-                    <NavLink to="/" className={styles.navLink}>
+                    {/* <NavLink to="/" className={styles.navLink}>
                         介绍
-                    </NavLink>
+                    </NavLink> */}
                     {/* <NavLink to="/test" className={styles.navLink}>
                         test
                     </NavLink> */}
@@ -38,7 +37,7 @@ export default class MainPage extends Component {
                 </HStack>
                 <Routes>
                     <Route path="test" element={<Counter />}></Route>
-                    <Route path="/" element={<MainDesc />}></Route>
+                    <Route path="/" element={<FuncLang2json />}></Route>
                     <Route path="/l2j" element={<FuncLang2json />}></Route>
                     <Route path="/jc" element={<FuncJsonComplete />}></Route>
                     <Route path="/ju" element={<FuncJsonUpdate />}></Route>
